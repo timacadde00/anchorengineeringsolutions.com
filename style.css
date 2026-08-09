@@ -423,3 +423,28 @@ button{ font-family:inherit; cursor:pointer; }
 @media (max-width:760px){
   .proj-gallery-full{ grid-template-columns:1fr; }
 }
+
+/* ---------- Hero image slider ---------- */
+.hero-slide{
+  position:absolute; inset:0; z-index:-1;
+  background-size:cover; background-position:center;
+  opacity:0; transition:opacity 1.2s ease;
+}
+.hero-slide.active{ opacity:1; }
+
+/* ---------- Back to top button ---------- */
+.back-to-top{
+  position:fixed; right:24px; bottom:94px; z-index:150;
+  width:46px; height:46px; border-radius:50%;
+  background:var(--white); color:var(--teal-800);
+  border:1px solid var(--line); box-shadow:var(--shadow-card);
+  display:grid; place-items:center; cursor:pointer;
+  opacity:0; visibility:hidden; transform:translateY(10px);
+  transition:opacity .25s ease, transform .25s ease, background .2s ease;
+}
+.back-to-top.show{ opacity:1; visibility:visible; transform:translateY(0); }
+.back-to-top:hover{ background:var(--teal-700); color:var(--white); }
+.back-to-top svg{ width:20px; height:20px; }
+@media (max-width:760px){
+  .back-to-top{ right:18px; bottom:86px; width:42px; height:42px; }
+}

@@ -94,6 +94,29 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // Footer year
+  // Hero image slider (cross-fade)
+  var slides = document.querySelectorAll('.hero-slide');
+  if (slides.length > 1) {
+    var slideIndex = 0;
+    setInterval(function () {
+      slides[slideIndex].classList.remove('active');
+      slideIndex = (slideIndex + 1) % slides.length;
+      slides[slideIndex].classList.add('active');
+    }, 5000);
+  }
+
+  // Back to top button
+  var backToTop = document.querySelector('.back-to-top');
+  if (backToTop) {
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 500) backToTop.classList.add('show');
+      else backToTop.classList.remove('show');
+    });
+    backToTop.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
   eachEl(document.querySelectorAll('.js-year'), function (el) {
     el.textContent = new Date().getFullYear();
   });
