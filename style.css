@@ -448,3 +448,16 @@ button{ font-family:inherit; cursor:pointer; }
 @media (max-width:760px){
   .back-to-top{ right:18px; bottom:86px; width:42px; height:42px; }
 }
+
+/* ---------- Section with background photo ---------- */
+.section-photo{ position:relative; background-size:cover; background-position:center; background-attachment:scroll; }
+.section-photo::before{ content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(8,26,32,.93), rgba(8,26,32,.88)); }
+.section-photo > .container{ position:relative; z-index:1; }
+.section-photo .eyebrow.on-light{ color:var(--coral-light); }
+.section-photo .eyebrow.on-light::before{ background:var(--coral-light); }
+.section-photo .section-head h2{ color:var(--white); }
+.section-photo .section-head p{ color:#CBE4E6; }
+.section-photo .why-card{ background:var(--white); }
+.section-photo .service-card{ background:var(--white); }
+.section-photo .btn-navy{ background:var(--coral); }
+.section-photo .btn-navy:hover{ background:var(--coral-dark); }
