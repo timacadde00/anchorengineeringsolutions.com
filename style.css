@@ -451,7 +451,7 @@ button{ font-family:inherit; cursor:pointer; }
 
 /* ---------- Section with background photo ---------- */
 .section-photo{ position:relative; background-size:cover; background-position:center; background-attachment:scroll; }
-.section-photo::before{ content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(8,26,32,.93), rgba(8,26,32,.88)); }
+.section-photo::before{ content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(8,26,32,.55), rgba(8,26,32,.48)); }
 .section-photo > .container{ position:relative; z-index:1; }
 .section-photo .eyebrow.on-light{ color:var(--coral-light); }
 .section-photo .eyebrow.on-light::before{ background:var(--coral-light); }
@@ -463,15 +463,25 @@ button{ font-family:inherit; cursor:pointer; }
 .section-photo .btn-navy:hover{ background:var(--coral-dark); }
 
 /* ---------- Work strip / Featured projects with photo bg ---------- */
-.work-strip.section-photo::before{ background:linear-gradient(180deg, rgba(8,26,32,.90), rgba(8,26,32,.85)); }
+.work-strip.section-photo::before{ background:linear-gradient(180deg, rgba(8,26,32,.5), rgba(8,26,32,.42)); }
 .work-strip.section-photo .work-strip .strip-head h2,
 .work-strip.section-photo h2{ color:var(--white); }
 .work-strip.section-photo .strip-link{ color:var(--coral-light); }
 
 /* ---------- Testimonials with photo bg ---------- */
-.section-navy.section-photo::before{ background:linear-gradient(180deg, rgba(8,26,32,.90), rgba(8,26,32,.88)); }
+.section-navy.section-photo::before{ background:linear-gradient(180deg, rgba(8,26,32,.62), rgba(8,26,32,.58)); }
 
 /* ---------- CTA banner with photo bg ---------- */
 .cta-banner.cta-photo{ position:relative; background-size:cover; background-position:center; overflow:hidden; }
-.cta-banner.cta-photo::before{ content:""; position:absolute; inset:0; background:linear-gradient(120deg, rgba(8,26,32,.93), rgba(16,107,120,.82)); }
+.cta-banner.cta-photo::before{ content:""; position:absolute; inset:0; background:linear-gradient(120deg, rgba(8,26,32,.62), rgba(16,107,120,.5)); }
 .cta-banner.cta-photo > div, .cta-banner.cta-photo > a{ position:relative; z-index:1; }
+
+/* Text shadow for readability over lighter photo overlays */
+.section-photo .section-head h2,
+.work-strip.section-photo h2,
+.section-navy.section-photo h2,
+.cta-banner.cta-photo h2{ text-shadow:0 2px 14px rgba(0,0,0,.55); }
+.section-photo .section-head p,
+.section-navy.section-photo .quote,
+.cta-banner.cta-photo p{ text-shadow:0 1px 10px rgba(0,0,0,.5); }
+.work-strip.section-photo .strip-link{ text-shadow:0 1px 8px rgba(0,0,0,.5); }
