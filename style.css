@@ -485,3 +485,9 @@ button{ font-family:inherit; cursor:pointer; }
 .section-navy.section-photo .quote,
 .cta-banner.cta-photo p{ text-shadow:0 1px 10px rgba(0,0,0,.5); }
 .work-strip.section-photo .strip-link{ text-shadow:0 1px 8px rgba(0,0,0,.5); }
+
+/* ---------- Full-bleed CTA section (photo reaches edges) ---------- */
+.cta-section-photo{ position:relative; background-size:cover; background-position:center; padding:80px 0; overflow:hidden; }
+.cta-section-photo::before{ content:""; position:absolute; inset:0; background:linear-gradient(120deg, rgba(8,26,32,.68), rgba(16,107,120,.55)); }
+.cta-section-photo .container{ position:relative; z-index:1; }
+.cta-section-photo .cta-banner{ background:none; padding:0; border-radius:0; box-shadow:none; }
