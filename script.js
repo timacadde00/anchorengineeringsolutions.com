@@ -1,3 +1,16 @@
+/* GitHub Pages ignores .htaccess — strip .html from the address bar when served over http(s). */
+(function () {
+  if (location.protocol === 'file:') return;
+  var path = location.pathname;
+  if (path === '/index.html' || path.endsWith('/index.html')) {
+    history.replaceState(null, '', path.replace(/\/index\.html$/, '/') || '/');
+    return;
+  }
+  if (/\.html$/i.test(path)) {
+    history.replaceState(null, '', path.replace(/\.html$/i, '') + location.search + location.hash);
+  }
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
   const menu = document.getElementById('menu-toggle');
   const mobile = document.getElementById('mobile-navigation');
