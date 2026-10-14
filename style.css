@@ -267,3 +267,29 @@
 [data-theme="dark"] .button-primary{background:#00748b}
 [data-theme="dark"] .button-primary:hover{background:#005f72}
 [data-theme="dark"] .back-top{background:#00748b}
+
+/* Under maintenance */
+.maintenance-body{min-height:100vh;margin:0}
+.maintenance-page{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:48px 24px;overflow:hidden}
+.maintenance-bg{position:absolute;inset:0;z-index:0}
+.maintenance-bg img{width:100%;height:100%;object-fit:cover;object-position:center 40%}
+.maintenance-wash{position:absolute;inset:0;background:linear-gradient(105deg,rgba(255,255,255,.97) 0%,rgba(241,248,250,.92) 42%,rgba(255,255,255,.55) 68%,rgba(255,255,255,.2) 100%)}
+.maintenance-panel{position:relative;z-index:1;max-width:560px;width:100%}
+.maintenance-logo{width:220px;max-height:56px;object-fit:contain;object-position:left center;margin-bottom:28px;background:transparent}
+.maintenance-panel .logo-dark{display:none}
+.maintenance-panel h1{font-family:var(--heading);font-size:clamp(36px,5vw,52px);line-height:1.1;letter-spacing:-.04em;font-weight:800;color:var(--ink);margin:10px 0 16px}
+.maintenance-copy{font-size:18px;line-height:1.65;color:var(--muted);max-width:480px;margin:0 0 28px}
+.maintenance-actions{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:22px}
+.maintenance-contact{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;font-size:15px;color:var(--muted);margin:0 0 28px}
+.maintenance-contact a{color:var(--teal-dark);font-weight:700}
+.maintenance-contact a:hover{color:var(--accent)}
+.maintenance-lang{display:inline-flex;align-items:center;gap:6px}
+[data-theme="dark"] .maintenance-wash{background:linear-gradient(105deg,rgba(11,22,30,.96) 0%,rgba(15,28,38,.9) 45%,rgba(15,28,38,.55) 70%,rgba(15,28,38,.25) 100%)}
+[data-theme="dark"] .maintenance-panel .logo-light{display:none}
+[data-theme="dark"] .maintenance-panel .logo-dark{display:block}
+@media(max-width:640px){
+  .maintenance-page{padding:36px 20px;align-items:flex-end}
+  .maintenance-wash{background:linear-gradient(180deg,rgba(255,255,255,.35) 0%,rgba(255,255,255,.88) 38%,rgba(255,255,255,.98) 100%)}
+  [data-theme="dark"] .maintenance-wash{background:linear-gradient(180deg,rgba(11,22,30,.4) 0%,rgba(11,22,30,.88) 40%,rgba(11,22,30,.98) 100%)}
+  .maintenance-logo{width:180px}
+}
