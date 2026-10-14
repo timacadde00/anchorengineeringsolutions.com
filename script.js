@@ -4,6 +4,27 @@ document.addEventListener('DOMContentLoaded', () => {
   function closeMenu() { if (!menu||!mobile) return; menu.setAttribute('aria-expanded','false'); mobile.hidden=true; menu.setAttribute('aria-label','Open navigation'); }
   menu?.addEventListener('click', () => { const opening = menu.getAttribute('aria-expanded')!=='true'; menu.setAttribute('aria-expanded',String(opening)); mobile.hidden=!opening; menu.setAttribute('aria-label',opening?'Close navigation':'Open navigation'); });
   mobile?.querySelectorAll('a').forEach(a => a.addEventListener('click',closeMenu));
+
+  const themeToggle = document.getElementById('theme-toggle');
+  function applyTheme(theme) {
+    const dark = theme === 'dark';
+    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+    try { localStorage.setItem('anchor-theme', dark ? 'dark' : 'light'); } catch (e) {}
+    if (themeToggle) {
+      themeToggle.setAttribute('aria-pressed', String(dark));
+      themeToggle.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+    }
+  }
+  const storedTheme = (() => { try { return localStorage.getItem('anchor-theme'); } catch (e) { return null; } })();
+  applyTheme(
+    storedTheme === 'dark' || storedTheme === 'light'
+      ? storedTheme
+      : (document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light')
+  );
+  themeToggle?.addEventListener('click', () => {
+    applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+  });
+
   function setLang(lang){
     document.documentElement.lang=lang;
     document.querySelectorAll('[data-en]').forEach(el=>{
