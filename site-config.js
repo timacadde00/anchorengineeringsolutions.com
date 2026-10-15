@@ -1,5 +1,5 @@
 /* Site switches — flip and redeploy to change behaviour. */
-window.ANCHOR_MAINTENANCE = true; // set to false to reopen the full site
+window.ANCHOR_MAINTENANCE = false; // set to false to reopen the full site
 
 (function () {
   if (!window.ANCHOR_MAINTENANCE) return;
