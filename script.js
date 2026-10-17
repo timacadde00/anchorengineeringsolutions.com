@@ -38,18 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
     applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
   });
 
-  function setLang(lang){
-    document.documentElement.lang=lang;
-    document.querySelectorAll('[data-en]').forEach(el=>{
-      if (el.tagName==='TITLE') { document.title=el.getAttribute('data-'+lang)||el.getAttribute('data-en'); return; }
-      if (el.tagName==='META') { el.setAttribute('content',el.getAttribute('data-'+lang)||el.getAttribute('data-en')); return; }
-      el.textContent=el.getAttribute('data-'+lang)||el.getAttribute('data-en');
-    });
-    document.querySelectorAll('[data-en-html]').forEach(el=>{el.innerHTML=el.getAttribute('data-'+lang+'-html')||el.getAttribute('data-en-html')});
-    document.querySelectorAll('[data-en-placeholder]').forEach(el=>{el.setAttribute('placeholder',el.getAttribute('data-'+lang+'-placeholder')||el.getAttribute('data-en-placeholder'))});
-    document.querySelectorAll('[data-lang]').forEach(b=>{let selected=b.dataset.lang===lang;b.setAttribute('aria-pressed',String(selected));b.classList.toggle('selected',selected)});
-  }
-  document.querySelectorAll('[data-lang]').forEach(button=>button.addEventListener('click',()=>setLang(button.dataset.lang)));
   const yearEl=document.getElementById('year'); if(yearEl) yearEl.textContent=new Date().getFullYear();
   document.getElementById('back-top')?.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
   // Optional slideshow: static initial photo for screenshot and reduced-motion users.
